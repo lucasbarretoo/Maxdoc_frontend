@@ -1,1 +1,107 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'ngx-toastr/toastr';
+@use '@angular/material' as mat;
+
+html {
+    @include mat.theme((
+        color: (
+            primary: mat.$violet-palette,
+            tertiary: mat.$orange-palette,
+            theme-type: light,
+        ),
+        typography: Roboto,
+        density: 0
+    ));
+}
+
+body {
+    font-family: Roboto, Arial, sans-serif;
+    margin: 0;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.login-container,
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+
+    mat-card {
+        width: 400px;
+        padding: 16px;
+    }
+}
+
+
+app-root {
+    display: flex;
+
+    app-content {
+        width: 100vw;
+    }
+
+    app-login,
+    app-register {
+        width: 100vw;
+    }
+}
+
+.content-container {
+
+    mat-card {
+        .table-responsive {
+            width: 100%;
+
+            table {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0px 0 10px -4px #8690a3;
+
+    .card-header {
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid #cecece30;
+        font-size: 1rem;
+        font-weight: 600;
+        display: flex;
+        justify-content: space-between;
+
+        .header-content {
+            display: flex;
+            align-items: center;
+
+        }
+
+        .header-controls {
+            button {
+                margin-left: 10px;
+            }
+        }
+    }
+
+    .card-body {
+        padding: 1rem 1.5rem;
+
+        .table-responsive {
+            width: 100%;
+
+            table {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+}

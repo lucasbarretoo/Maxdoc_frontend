@@ -1,0 +1,85 @@
+<h1>Documentos</h1>
+
+<div class="card">
+    <div class="card-header">
+        <div class="header-content">
+            Listagem de documentos
+        </div>
+        <div class="header-controls">
+
+            <button mat-raised-button color="primary" (click)="openFormDoc()">
+                Cadastrar
+            </button>
+        </div>
+
+    </div>
+    <div class="card-body">
+
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Título</th>
+                        <th scope="col">Versão</th>
+                        <th scope="col">Sigla</th>
+                        <th scope="col">Fase</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr *ngFor="let doc of documentList">
+                        <th scope="row">{{doc.id}}</th>
+                        <td>{{doc.title}}</td>
+                        <td>{{doc.versions[doc.versions.length - 1].version}}</td>
+                        <td>{{doc.versions[doc.versions.length - 1].abbrev}}</td>
+                        <td>{{doc.versions[doc.versions.length - 1].phase}}</td>
+                        <td>
+                            <button 
+                                mat-icon-button 
+                                title="Submeter documento" 
+                                (click)="submitDoc(doc.id)"
+                                *ngIf="doc.versions[doc.versions.length - 1].phase == 'Minuta'"
+                            >
+                                <mat-icon>send</mat-icon>
+                            </button>
+                            <button 
+                                mat-icon-button
+                                title="Obsoletar documento"
+                                (click)="obsoleteDoc(doc.id)"
+                                *ngIf="doc.versions[doc.versions.length - 1].phase == 'Vigente'"
+                            >
+                                <mat-icon>block</mat-icon>
+                            </button>
+                            <button 
+                                mat-icon-button 
+                                title="Criar novo documento a partir deste" 
+                                (click)="createFromCurrentVersion(doc.id)"
+                                *ngIf="doc.versions[doc.versions.length - 1].phase == 'Vigente'"
+                            >
+                                <mat-icon>content_copy</mat-icon>
+                            </button>
+                            <button 
+                                mat-icon-button
+                                title="Editar documento" 
+                                (click)="openFormDoc(doc.id)"
+                            >
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button 
+                                mat-icon-button 
+                                title="Deletar documento" 
+                                (click)="deleteDoc(doc.id)"
+                            >
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+            </table>
+        </div>
+
+    </div>
+</div>

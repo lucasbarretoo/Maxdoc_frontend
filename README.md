@@ -1,59 +1,37 @@
-# Frontend
+# MaxDoc Simplificado - Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
+MaxDoc Simplificado é um projeto para gerenciamento simplificado de documentos, composto por dois repositórios: **Backend** e **Frontend**.
 
-## Development server
+---
 
-To start a local development server, run:
+## Repositório Frontend
 
-```bash
-ng serve
-```
+## Tecnologias e bibliotecas
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **Angular 19.x**
+- **Express.js** (para SSR - Server Side Rendering)
+- **Ngx-Editor** (Editor de texto rico)
+- **Ngx-Toastr** (Notificações)
+- **RxJS** (para manipulação de streams)
+- **TypeScript**
 
-## Code scaffolding
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Passos para executar o Frontend
 
-```bash
-ng generate component component-name
-```
+#### Clone o repositório:
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+    git clone https://github.com/usuario/frontend.git
 
-```bash
-ng generate --help
-```
+#### Instale as dependências: 
 
-## Building
+Navegue até o diretório do projeto e execute o comando para instalar todas as dependências:
 
-To build the project run:
+    npm install
 
-```bash
-ng build
-```
+#### Inicie o servidor de desenvolvimento: 
+Para iniciar o servidor de desenvolvimento e acessar o projeto em http://localhost:4200, execute:
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+    npm start
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+#### Acessar o aplicativo: 
+Abra o navegador e acesse http://localhost:4200 para visualizar o frontend em funcionamento.

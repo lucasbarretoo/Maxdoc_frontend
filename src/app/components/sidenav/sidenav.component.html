@@ -1,0 +1,30 @@
+<div class="sidenav" [class.sidenav-collapsed]="collapsed">
+    <div class="logo-container">
+        <button class="logo"  (click)="toggleSidenav()">
+            <img src="maxdoc.png" alt="">
+        </button>
+        <a routerLink="/home">
+            <div class="logo-text" *ngIf="!collapsed" >
+                Maxdoc Simplificado
+            </div>
+        </a>
+
+        <button class="btn-close" *ngIf="!collapsed" (click)="closeSidenav()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+
+    <ul class="sidenav-nav">
+        <li class="sidenav-nav-item" *ngFor="let data of navData">
+            <a href="" class="sidenav-nav-link" [routerLink]="data.routeLink"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact:true}"
+            >
+                <div class="sidenav-link-icon">
+                    <mat-icon>{{data.icon}}</mat-icon>
+                </div>
+                <span class="sidenav-link-text" *ngIf="!collapsed">{{data.label}}</span>
+            </a>
+        </li>
+    </ul>
+</div>

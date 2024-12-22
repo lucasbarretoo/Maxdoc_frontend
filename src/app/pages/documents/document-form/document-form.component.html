@@ -1,0 +1,64 @@
+<h1>Documentos</h1>
+
+<div class="card">
+    <div class="card-header">
+        <div class="header-content">
+            <ng-container *ngIf="!documentId">
+                Cadastro de documento
+            </ng-container>
+            <ng-container *ngIf="documentId">
+                Atualização de documento
+            </ng-container>
+        </div>
+        <div class="header-controls">
+            <button mat-raised-button color="tertiary" (click)="router.navigate(['/documents'])">
+                Voltar
+            </button>
+            <button mat-raised-button color="primary" [disabled]="docForm.invalid || (documentId && document.versions[this.document.versions.length - 1].phase != 'Minuta')" (click)="onSubmit()">
+                <ng-container *ngIf="!documentId">
+                    Cadastrar
+                </ng-container>
+                <ng-container *ngIf="documentId">
+                    Atualizar
+                </ng-container>
+            </button>
+        </div>
+
+    </div>
+    <div class="card-body">
+
+        <div class="table-responsive">
+            <form [formGroup]="docForm">
+                <mat-form-field class="full-width">
+                    <mat-label>Título</mat-label>
+                    <input 
+                        matInput 
+                        formControlName="title" 
+                        type="text" 
+                        placeholder="Digite um título" 
+                    />
+                    <mat-error *ngIf="docForm.get('title')?.invalid">
+                        Título obrigatório
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <mat-label>Sigla</mat-label>
+                    <input matInput formControlName="abbrev" type="text" placeholder="Digite uma sigla" />
+                    <mat-error *ngIf="docForm.get('abbrev')?.invalid">
+                        Sigla obrigatória
+                    </mat-error>
+                </mat-form-field>
+
+                <div class="editor full-width">
+                    <mat-label>Descrição</mat-label>
+                    <ngx-editor-menu [editor]="editor" [toolbar]="toolbar">
+                    </ngx-editor-menu>
+                    <ngx-editor [editor]="editor" formControlName="description">
+                    </ngx-editor>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
